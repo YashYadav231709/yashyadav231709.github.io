@@ -1,3 +1,39 @@
+// LOTTIE INTRO (plays once, dark background)
+window.addEventListener('load', () => {
+    const intro = document.getElementById('intro');
+
+    // Safety check
+    if (!intro || !window.lottie) return;
+
+    const animation = lottie.loadAnimation({
+        container: document.getElementById('lottie'),
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        path: 'Scene-4.json' // case-sensitive!
+    });
+
+    animation.addEventListener('complete', () => {
+        const overlay = document.querySelector('#intro .overlay');
+
+        // Fade out overlay
+        overlay.style.opacity = '0';
+
+        // Shrink and move the logo far upwards
+        const logo = document.getElementById('lottie');
+        logo.style.transform = 'translateY(-140%) scale(0.001)';
+        logo.style.opacity = '0';
+
+        // Remove everything after animation
+        setTimeout(() => {
+            document.getElementById('intro').remove();
+        }, 800); // match CSS transition duration
+    });
+
+
+
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
