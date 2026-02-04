@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TasteLab Internship | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+            </ul>
+            
+            <a href="#home" class="logo">
+                <img src="..\logos\y_squared_border_svg_white.svg" alt="Logo" class="logo-img">
+            </a>
+            
+            <ul class="nav-menu nav-right">
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+            
+            <div class="project-meta">
+                <span class="project-meta-item">Year 3</span>
+                <span class="project-meta-item">Specialization</span>
+                <span class="project-meta-item">Current</span>
+            </div>
+            <h1 class="project-page-title">📹 TasteLab - Data Integration Project</h1>
+            <p class="project-page-desc">
+                An 18-week specialization internship focused on full-stack development and system 
+                integration—building backend data pipelines that process multi-camera video data 
+                through transcription, NLP analysis, and computer vision models.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🔄 Dagster</span>
+                <span class="tech-badge">🐳 Docker</span>
+                <span class="tech-badge">📦 MinIO</span>
+                <span class="tech-badge">🎙️ NeMo/Whisper</span>
+                <span class="tech-badge">🐍 Python</span>
+                <span class="tech-badge">🗄️ PostgreSQL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <main class="project-content">
+        <section class="content-section">
+            <h2>Project Overview</h2>
+            <p>
+                TasteLab is a research initiative at Breda University focused on analyzing food 
+                experiments through video data. My role as a supporting intern involves building 
+                the core infrastructure that enables researchers to process and analyze multi-camera 
+                recordings of cooking experiments.
+            </p>
+            <p>
+                This is a collaborative project where I work alongside teammates specializing in 
+                computer vision (Joey), NLP (Ayumi), and other areas (Jeremy), with mentorship from Arash. 
+                My focus is on the full-stack integration layer—connecting all the ML components into 
+                a cohesive, automated pipeline.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Technical Architecture</h2>
+            <p>
+                The system I'm building processes video data through multiple stages:
+            </p>
+            <ul>
+                <li><strong>Data Ingestion:</strong> Automated file monitoring and ingestion from MinIO object storage, handling multi-camera video uploads with proper metadata extraction.</li>
+                <li><strong>Audio Processing:</strong> Extracting audio tracks from video files and preprocessing for transcription.</li>
+                <li><strong>Transcription Pipeline:</strong> Implementing speech-to-text using NVIDIA NeMo toolkit and OpenAI Whisper models, with speaker diarization support.</li>
+                <li><strong>NLP Analysis:</strong> Processing transcripts through NLP models for summarization, key moment extraction, and content structuring.</li>
+                <li><strong>Computer Vision Integration:</strong> Connecting to CV models for visual analysis of cooking activities and ingredient detection.</li>
+                <li><strong>Data Storage:</strong> Structured storage of all outputs in PostgreSQL with proper relationships and MinIO for binary artifacts.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Dagster Orchestration</h2>
+            <p>
+                The entire pipeline is orchestrated using Dagster, a modern data orchestration framework:
+            </p>
+            <ul>
+                <li>Defined assets for each processing stage with proper dependencies</li>
+                <li>Implemented sensors for automated triggering on new file uploads</li>
+                <li>Built custom I/O managers for MinIO and PostgreSQL integration</li>
+                <li>Created partitioned assets for efficient batch processing</li>
+                <li>Set up monitoring and alerting for pipeline health</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Infrastructure Challenges</h2>
+            <p>
+                Working on shared university servers presented unique challenges:
+            </p>
+            <ul>
+                <li><strong>GPU Resource Management:</strong> Implementing proper CUDA memory allocation to share GPUs with other processes and users.</li>
+                <li><strong>Docker Containerization:</strong> Creating optimized containers that balance image size with functionality, managing complex ML dependencies.</li>
+                <li><strong>Dependency Conflicts:</strong> Resolving conflicts between computer vision packages (OpenCV, PyTorch) and NLP libraries (NeMo, Transformers).</li>
+                <li><strong>Network Configuration:</strong> Setting up proper communication between containerized services and external storage.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Key Accomplishments</h2>
+            <p>
+                Major milestones achieved during this internship:
+            </p>
+            <ul>
+                <li>Built a fully automated video processing pipeline handling 10+ hours of footage</li>
+                <li>Implemented NeMo-based transcription achieving high accuracy on cooking domain audio</li>
+                <li>Created a modular architecture allowing easy swapping of ML models</li>
+                <li>Resolved complex GPU memory issues enabling inference on shared infrastructure</li>
+                <li>Developed comprehensive documentation for pipeline maintenance and extension</li>
+                <li>Set up proper CI/CD workflows for the team's codebase</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Team Collaboration</h2>
+            <p>
+                This project emphasizes cross-functional collaboration:
+            </p>
+            <ul>
+                <li>Regular sync meetings with team members to align on interfaces</li>
+                <li>Code reviews and knowledge sharing sessions</li>
+                <li>Mentorship sessions with Arash for technical guidance</li>
+                <li>Documentation of APIs and data contracts between components</li>
+                <li>Sprint planning and retrospectives following agile practices</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Technologies Deep Dive</h2>
+            <div class="tech-stack-detail">
+                <div class="tech-badge">
+                    <strong>Dagster</strong> — Data orchestration framework for building, running, and monitoring data pipelines with software-defined assets.
+                </div>
+                <div class="tech-badge">
+                    <strong>MinIO</strong> — High-performance object storage compatible with Amazon S3 API, used for storing video files and processed artifacts.
+                </div>
+                <div class="tech-badge">
+                    <strong>NVIDIA NeMo</strong> — Toolkit for building conversational AI models, used for speech recognition and transcription.
+                </div>
+                <div class="tech-badge">
+                    <strong>Docker</strong> — Containerization platform ensuring reproducible environments across development and production.
+                </div>
+                <div class="tech-badge">
+                    <strong>PostgreSQL</strong> — Relational database storing structured metadata, transcripts, and analysis results.
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>Learning Outcomes</h3>
+                <ul>
+                    <li>Design and implement production data pipelines using modern orchestration tools</li>
+                    <li>Integrate multiple ML models (NLP, CV, ASR) into cohesive systems</li>
+                    <li>Manage infrastructure challenges in shared computing environments</li>
+                    <li>Collaborate effectively in cross-functional technical teams</li>
+                    <li>Document and communicate technical decisions to stakeholders</li>
+                    <li>Apply CRISP-DM methodology to real-world data science projects</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Reflections</h2>
+            <p>
+                This internship has been the culmination of my learning journey so far. Every block 
+                from Year 1 and Year 2 contributed skills that I use daily—from the Python fundamentals 
+                and data visualization of Block A, through the NLP and computer vision specializations, 
+                to the MLOps deployment skills that make this infrastructure work.
+            </p>
+            <p>
+                The biggest learning has been understanding that building ML systems is about much more 
+                than models—it's about creating reliable, maintainable infrastructure that enables 
+                research and delivers value consistently.
+            </p>
+        </section>
+
+        <!-- Project Navigation -->
+        <nav class="project-navigation">
+            <a href="project-8-mlops.html" class="nav-prev">
+                <span class="nav-label">Previous Project</span>
+                <span class="nav-title">← Deploying ML Solutions</span>
+            </a>
+            <div class="nav-next"></div>
+        </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Yash Yadav. All rights reserved.</p>
+    </footer>
+</body>
+</html>
