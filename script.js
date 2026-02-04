@@ -14,24 +14,22 @@ window.addEventListener('load', () => {
     });
 
     animation.addEventListener('complete', () => {
-        const overlay = document.querySelector('#intro .overlay');
+    const overlay = document.querySelector('#intro .overlay');
 
-        // Fade out overlay
-        overlay.style.opacity = '0';
+    // Fade out overlay smoothly
+    overlay.style.transition = 'opacity 0.8s ease-out';
+    overlay.style.opacity = '0';
 
-        // Shrink and move the logo far upwards
-        const logo = document.getElementById('lottie');
-        logo.style.transform = 'translateY(-140%) scale(0.001)';
-        logo.style.opacity = '0';
+    // Shrink and move logo up with smooth easing
+    const logo = document.getElementById('lottie');
+    logo.style.transform = 'translateY(-140%) scale(0.0001)';
+    logo.style.opacity = '0';
 
-        // Remove everything after animation
-        setTimeout(() => {
-            document.getElementById('intro').remove();
-        }, 800); // match CSS transition duration
+    // Remove intro container after transition
+    setTimeout(() => {
+        document.getElementById('intro').remove();
+    }, 800);
     });
-
-
-
 });
 
 // Smooth scrolling for navigation links
