@@ -37,6 +37,8 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
+/* FIX: Use pseudo-elements with will-change to avoid full repaints */
 body::before {
     content: '';
     position: fixed;
@@ -48,9 +50,9 @@ body::before {
     background-size: 30px 30px;
     pointer-events: none;
     z-index: 0;
+    will-change: auto;
 }
 
-/* Blue glow at top */
 body::after {
     content: '';
     position: fixed;
@@ -86,11 +88,11 @@ body::after {
     width: 320px;
     max-width: 80vw;
     z-index: 2;
+    /* FIX: Use will-change to hint GPU for these specific properties */
+    will-change: transform, opacity;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
                 opacity 0.8s ease-out;
 }
-
-
 
 .container {
     max-width: 1200px;
@@ -104,7 +106,9 @@ body::after {
     top: 0;
     width: 100%;
     background: rgba(5, 10, 24, 0.8);
-    backdrop-filter: blur(20px);
+    /* FIX: Reduced blur from 20px to 10px — significantly cheaper to render */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
@@ -155,7 +159,7 @@ body::after {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     position: relative;
 }
 
@@ -178,7 +182,7 @@ body::after {
     width: 100%;
 }
 
-/* Hero Section - Full Gradient */
+/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -190,7 +194,7 @@ body::after {
     overflow: hidden;
 }
 
-/* Animated background dots */
+/* FIX: Isolated to its own layer, translate3d forces GPU compositing */
 .hero::before {
     content: '';
     position: absolute;
@@ -198,10 +202,10 @@ body::after {
     height: 200%;
     background: radial-gradient(circle, rgba(60, 100, 255, 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
+    will-change: transform;
     animation: backgroundMove 30s linear infinite;
 }
 
-/* Blue glow effect at top */
 .hero::after {
     content: '';
     position: absolute;
@@ -214,13 +218,10 @@ body::after {
     pointer-events: none;
 }
 
+/* FIX: translate3d instead of translate — keeps animation on GPU compositor thread */
 @keyframes backgroundMove {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(50px, 50px);
-    }
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(50px, 50px, 0); }
 }
 
 .hero-content {
@@ -251,16 +252,14 @@ body::after {
     background: linear-gradient(90deg, #ffffff 0%, var(--primary-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: pulse 2s ease-in-out infinite;
+    /* FIX: pulse uses opacity only — cheapest possible animation */
+    animation: pulse 3s ease-in-out infinite;
 }
 
+/* FIX: Slowed down to 3s — less aggressive repainting */
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.8;
-    }
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.8; }
 }
 
 .hero-subtitle {
@@ -282,11 +281,13 @@ body::after {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    /* FIX: Only transition transform and box-shadow, not 'all' */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     display: inline-block;
     border: none;
     font-size: 1rem;
     text-align: center;
+    will-change: transform;
 }
 
 .btn-primary {
@@ -312,7 +313,6 @@ body::after {
     transform: translateY(-3px);
 }
 
-/* Contact section button overrides */
 .contact .btn-primary {
     background: var(--primary-light);
     color: white;
@@ -337,20 +337,18 @@ body::after {
     border-radius: 20px;
     position: absolute;
     right: 10%;
+    /* FIX: will-change tells GPU to prepare this layer */
+    will-change: transform;
     animation: float 6s ease-in-out infinite;
     border: 1px solid rgba(60, 100, 255, 0.2);
 }
 
+/* FIX: translate3d instead of translateY */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%       { transform: translate3d(0, -20px, 0); }
 }
 
-/* Section Styles */
 section {
     padding: 80px 20px;
 }
@@ -365,12 +363,8 @@ section {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .section-title::after {
@@ -384,12 +378,10 @@ section {
     box-shadow: 0 0 20px rgba(60, 100, 255, 0.5);
 }
 
-/* About Section */
 .about {
     background: transparent;
 }
 
-/* Subtle top glow for sections */
 .about::before,
 .skills::before {
     content: '';
@@ -407,7 +399,8 @@ section {
     border-radius: 15px;
     border: 1px solid var(--border-color);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    /* FIX: Only transition border-color and box-shadow, not 'all' */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     max-width: 100%;
 }
 
@@ -432,12 +425,10 @@ section {
     margin-bottom: 0;
 }
 
-/* Projects Section */
 .projects {
     background: transparent;
 }
 
-/* Blue glow behind projects */
 .projects::after {
     content: '';
     position: absolute;
@@ -459,6 +450,7 @@ section {
     z-index: 1;
 }
 
+/* FIX: Removed CSS animation from cards — JS Observer handles it instead */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -466,12 +458,13 @@ section {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    animation: fadeInUp 0.6s ease-out;
+    /* FIX: Specific properties only, not 'all' */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     text-decoration: none;
     color: inherit;
     position: relative;
     border: 1px solid var(--border-color);
+    will-change: transform;
 }
 
 .project-card:hover {
@@ -528,7 +521,8 @@ section {
     color: #ffffff;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
+    will-change: transform;
 }
 
 .project-card:hover .project-link {
@@ -550,7 +544,7 @@ section {
     letter-spacing: 0.05em;
     box-shadow: 0 0 15px rgba(60, 100, 255, 0.5);
 }
-/* Skills Section */
+
 .skills {
     background: transparent;
 }
@@ -562,14 +556,14 @@ section {
     margin-top: 2rem;
 }
 
+/* FIX: Removed CSS animation — JS Observer handles it */
 .skill-category {
     background: var(--dark-card);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 0.6s ease-out;
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-category:hover {
@@ -594,9 +588,10 @@ section {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     color: var(--text-secondary);
     border: 1px solid var(--border-color);
+    will-change: transform;
 }
 
 .skill-item:hover {
@@ -606,7 +601,6 @@ section {
     border-color: var(--primary-light);
 }
 
-/* Contact Section */
 .contact {
     text-align: center;
     background: transparent;
@@ -639,7 +633,6 @@ section {
     flex-wrap: wrap;
 }
 
-/* Footer */
 .footer {
     background: transparent;
     color: var(--text-secondary);
@@ -673,6 +666,7 @@ section {
     height: 200%;
     background: radial-gradient(circle, rgba(60, 100, 255, 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
+    will-change: transform;
     animation: backgroundMove 30s linear infinite;
 }
 
@@ -702,7 +696,8 @@ section {
     text-decoration: none;
     font-weight: 500;
     margin-bottom: 2rem;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    will-change: transform;
 }
 
 .back-link:hover {
@@ -762,7 +757,6 @@ section {
     border: 1px solid rgba(60, 100, 255, 0.3);
 }
 
-/* Project Content */
 .project-content {
     max-width: 800px;
     margin: 0 auto;
@@ -828,7 +822,6 @@ section {
     color: var(--text-primary);
 }
 
-/* Learning Outcomes Box */
 .learning-outcomes {
     background: var(--dark-card);
     border-radius: 15px;
@@ -852,7 +845,6 @@ section {
     color: var(--text-secondary);
 }
 
-/* Project Navigation */
 .project-navigation {
     display: flex;
     justify-content: space-between;
@@ -867,7 +859,8 @@ section {
     flex-direction: column;
     gap: 0.25rem;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+    will-change: transform;
     max-width: 45%;
 }
 
@@ -899,7 +892,6 @@ section {
     text-shadow: 0 0 10px rgba(60, 100, 255, 0.5);
 }
 
-/* Tech Stack on Detail Pages */
 .tech-stack-detail {
     display: flex;
     flex-direction: column;
@@ -922,7 +914,6 @@ section {
     min-width: 120px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .nav-left,
     .nav-right {
