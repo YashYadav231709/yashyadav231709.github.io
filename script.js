@@ -1,8 +1,6 @@
 // LOTTIE INTRO (plays once, dark background)
 window.addEventListener('load', () => {
     const intro = document.getElementById('intro');
-
-    // Safety check
     if (!intro || !window.lottie) return;
 
     const animation = lottie.loadAnimation({
@@ -10,25 +8,20 @@ window.addEventListener('load', () => {
         renderer: 'svg',
         loop: false,
         autoplay: true,
-        path: 'Scene-4.json' // case-sensitive!
+        path: 'Scene-4.json'
     });
 
     animation.addEventListener('complete', () => {
-    const overlay = document.querySelector('#intro .overlay');
+        const overlay = document.querySelector('#intro .overlay');
+        const logo = document.getElementById('lottie');
 
-    // Fade out overlay smoothly
-    overlay.style.transition = 'opacity 0.8s ease-out';
-    overlay.style.opacity = '0';
+        overlay.style.opacity = '0';
+        logo.style.transform = 'translateY(-140%) scale(0.0001)';
+        logo.style.opacity = '0';
 
-    // Shrink and move logo up with smooth easing
-    const logo = document.getElementById('lottie');
-    logo.style.transform = 'translateY(-140%) scale(0.0001)';
-    logo.style.opacity = '0';
-
-    // Remove intro container after transition
-    setTimeout(() => {
-        document.getElementById('intro').remove();
-    }, 800);
+        setTimeout(() => {
+            document.getElementById('intro').remove();
+        }, 800);
     });
 });
 
@@ -38,17 +31,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Navbar background on scroll - Dark Blue Theme
+// Navbar background on scroll
+// FIX: Use requestAnimationFrame to throttle scroll handler
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+function updateNavbar() {
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(5, 10, 24, 0.95)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
@@ -56,9 +50,18 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(5, 10, 24, 0.8)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
     }
-});
+    ticking = false;
+}
 
-// Intersection Observer for fade-in animations
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+    }
+}, { passive: true });
+
+// FIX: Intersection Observer — handles fade-in without conflicting with CSS animations
+// Cards have no CSS animation now; this is the single source of truth
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -67,30 +70,29 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            // FIX: Use CSS class toggle instead of direct style mutation
+            entry.target.classList.add('visible');
+            // Stop observing once visible — no need to keep watching
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe all cards and sections
 document.querySelectorAll('.project-card, .skill-category, .about-text').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease-out';
+    el.classList.add('fade-in-ready');
     observer.observe(el);
 });
 
 // Active nav link on scroll
+// FIX: Also throttled with requestAnimationFrame
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
+let navTicking = false;
 
-window.addEventListener('scroll', () => {
+function updateActiveNav() {
     let current = '';
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 200) {
+        if (window.scrollY >= section.offsetTop - 200) {
             current = section.getAttribute('id');
         }
     });
@@ -101,4 +103,13 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
+
+    navTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!navTicking) {
+        requestAnimationFrame(updateActiveNav);
+        navTicking = true;
+    }
+}, { passive: true });
