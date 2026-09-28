@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaldeerStop | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation (links point back to the main page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            </ul>
+
+            <a href="../index.html#home" class="logo">
+                <img src="../logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
+            </a>
+
+            <ul class="nav-menu nav-right">
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+
+            <div class="project-meta">
+                <span class="project-meta-item">Year 4</span>
+                <span class="project-meta-item">Minor Entrepreneurship (HU)</span>
+                <span class="project-meta-item">In validation</span>
+            </div>
+            <h1 class="project-page-title">🔋 SaldeerStop</h1>
+            <p class="project-page-desc">
+                A home battery and solar payback tool for the Dutch market, built around the end of
+                net metering (saldering) on 1 January 2027. Developed as my own venture during the
+                Minor Entrepreneurship at Hogeschool Utrecht.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🐍 Python</span>
+                <span class="tech-badge">⚡ Energy Data</span>
+                <span class="tech-badge">📊 Data Analysis</span>
+                <span class="tech-badge">🚀 Entrepreneurship</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <main class="project-content">
+        <section class="content-section">
+            <h2>The Problem</h2>
+            <p>
+                Until 2027, Dutch households with solar panels can offset the electricity they feed
+                back into the grid against the electricity they use. From 1 January 2027 that scheme
+                ends. Many solar owners will have to decide whether a home battery is worth it, and
+                most have no reliable way to find out for their own situation.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>The Idea</h2>
+            <p>
+                SaldeerStop is a sizing and payback tool for consumers and solar installers. It
+                estimates whether a home battery saves money over its lifetime, and what size makes
+                sense, for a specific household.
+            </p>
+            <p>
+                The business model: when the tool shows that a battery pays off, the household can
+                be connected to a battery supplier or installer, who pays for that qualified lead.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Current Stage: Kill Test</h2>
+            <p>
+                Before building the product, I'm testing the assumption the whole idea rests on:
+            </p>
+            <ul>
+                <li><strong>Hypothesis:</strong> Real household load profiles give a meaningfully different battery payback than the standard profiles most calculators use.</li>
+                <li><strong>If true:</strong> A personalised tool has a clear advantage over generic calculators, and the venture moves forward.</li>
+                <li><strong>If false:</strong> Generic calculators are good enough, and I pivot or stop.</li>
+            </ul>
+            <!-- TODO: Once the test is done, add your method (data source, number of households,
+                 battery model assumptions) and the result. Even a negative result is worth showing. -->
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>What This Project Shows</h3>
+                <ul>
+                    <li>Framing a data problem around a real regulatory and market change</li>
+                    <li>Testing the riskiest assumption first instead of building straight away</li>
+                    <li>Connecting a data product to a concrete revenue model</li>
+                    <li>Working towards a graduation route via my own company</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Project Navigation -->
+        <nav class="project-navigation">
+            <div class="nav-prev"></div>
+            <a href="project-govee.html" class="nav-next">
+                <span class="nav-label">Next Project</span>
+                <span class="nav-title">Govee LED Music Sync →</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
+    </footer>
+</body>
+</html>

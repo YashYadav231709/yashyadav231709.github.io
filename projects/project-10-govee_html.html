@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govee LED Music Sync | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation (links point back to the main page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            </ul>
+
+            <a href="../index.html#home" class="logo">
+                <img src="../logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
+            </a>
+
+            <ul class="nav-menu nav-right">
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+
+            <div class="project-meta">
+                <span class="project-meta-item">Personal Project</span>
+                <span class="project-meta-item">Python</span>
+                <span class="project-meta-item">Ongoing</span>
+            </div>
+            <h1 class="project-page-title">🎵 Govee LED Music Sync</h1>
+            <p class="project-page-desc">
+                A Python system that drives Govee LED strips in real time from audio, using an
+                unofficial UDP protocol for instant, per-segment colour control. Includes a
+                standalone light show player with automatic scene transitions.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🐍 Python</span>
+                <span class="tech-badge">🌐 UDP Networking</span>
+                <span class="tech-badge">🎧 Audio Processing</span>
+                <span class="tech-badge">💡 Real-time Control</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <main class="project-content">
+        <section class="content-section">
+            <h2>Project Overview</h2>
+            <p>
+                Govee's own music mode is limited and not very responsive. I wanted lights that react
+                to music instantly and that I fully control, so I built my own sync system in Python.
+            </p>
+            <!-- TODO: Add a short demo video or GIF here. This is the single most convincing
+                 thing you can put on this page. Example:
+                 <video src="../media/govee-demo.mp4" controls muted loop width="100%"></video> -->
+        </section>
+
+        <section class="content-section">
+            <h2>How It Works</h2>
+            <ul>
+                <li><strong>Direct device control:</strong> Communicates with the LED strip over an unofficial "razer" UDP protocol on port 4003, bypassing the slower official control paths.</li>
+                <li><strong>Per-segment colour:</strong> Updates 50 addressable segments individually, so effects can move across the strip instead of changing it all at once.</li>
+                <li><strong>Audio-reactive presets:</strong> Multiple presets that map live audio to colour and movement patterns.</li>
+                <li><strong>Standalone light show player:</strong> Detects audio and switches between scenes automatically, so it runs without manual input.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Challenges &amp; Learnings</h2>
+            <!-- TODO: Fill in with your real experience. Good candidates:
+                 - How you figured out the unofficial protocol (packet format, documentation, trial and error)
+                 - Latency: how you kept audio and light in sync
+                 - How you turn raw audio into features (volume, beats, frequency bands)
+                 - What didn't work at first and how you fixed it
+                 Two or three concrete points beat six generic ones. -->
+            <p>Coming soon.</p>
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>What This Project Shows</h3>
+                <ul>
+                    <li>Working with undocumented protocols and low-level networking</li>
+                    <li>Real-time audio processing in Python</li>
+                    <li>Building a tool from scratch out of my own curiosity</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TODO: Add a GitHub link once the repo is public, e.g.
+        <section class="content-section">
+            <a href="https://github.com/yashyadav231709/REPO-NAME" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+        </section> -->
+
+        <!-- Project Navigation -->
+        <nav class="project-navigation">
+            <a href="project-saldeerstop.html" class="nav-prev">
+                <span class="nav-label">Previous Project</span>
+                <span class="nav-title">← SaldeerStop</span>
+            </a>
+            <div class="nav-next"></div>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
+    </footer>
+</body>
+</html>
