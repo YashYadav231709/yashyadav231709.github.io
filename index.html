@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yash Yadav - Portfolio</title>
+    <meta name="description" content="Yash Yadav - Applied Data Science & AI student at BUas. Backend, data engineering and ML pipelines.">
     <link rel="icon" type="image/png" href="logos/y_squared_png_white.png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,24 +14,24 @@
         <div id="lottie"></div>
     </div>
 
-
     <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
-    <!-- Navigation -->
+    <!-- Navigation (order now matches the page order) -->
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-menu nav-left">
-                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
             </ul>
-            
+
             <a href="#home" class="logo">
-                <img src="logos/y_squared_border_svg_white.svg" alt="Logo" class="logo-img">
+                <img src="logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
             </a>
-            
+
             <ul class="nav-menu nav-right">
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -39,20 +40,60 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Hi, I'm <span class="highlight">Yash Yadav</span></h1>
-            <p class="hero-subtitle">Data Scientist | Backend Developer | Data Engineer</p>
+            <p class="hero-subtitle">Data Engineer | Backend Developer | Data Scientist</p>
+            <p class="hero-subtitle">Open to working student roles in data &amp; AI (8–16 h/week, hybrid)</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
         </div>
     </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-card">
                 <h2 class="section-title">About Me</h2>
-                <p>I'm a Data Science & AI student specializing in audio processing, machine learning, and building scalable systems. With experience in Docker, Python, and modern web technologies, I love creating solutions that make a difference.</p>
-                <p>Currently working with Dagster pipelines, Whisper API, and HuggingFace models to build audio transcription and summarization systems.</p>
+                <p>I'm a fourth-year BSc Applied Data Science &amp; AI student at Breda University of Applied Sciences, graduating in July 2027. I like building the part of AI that actually has to run: data pipelines, backends, and deployments that other people depend on.</p>
+                <p>During my specialization internship at TasteLab I built a production backend pipeline end to end, from orchestration and storage to transcription, LLM summarization, and container deployment on a university server.</p>
+                <p>This semester I'm doing the Minor Entrepreneurship at Hogeschool Utrecht, where I'm developing an AI-driven venture of my own. I'm based in Nieuwegein and open to working student roles in data engineering, data science, analytics, or ML.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="projects">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="projects-grid">
+
+                <a href="projects/project-9-tastelab.html" class="project-card featured">
+                    <span class="status-badge">Completed · Grade 8.3</span>
+                    <h3>Backend &amp; Data Engineering Intern, TasteLab (BUas)</h3>
+                    <p><strong>Feb – Jun 2026.</strong> Built the full data pipeline for a sensory research lab: Dagster orchestration, MinIO object storage, faster-whisper transcription (migrated from NeMo after quality issues), two-pass Claude API summarization, and computer vision integration (YOLOv8, ResNet50). Deployed as Docker stacks via Portainer and GHCR, with a Django dashboard for researchers.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">Dagster</span>
+                            <span class="tag">FastAPI / Django</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
+                <div class="project-card">
+                    <span class="status-badge">Freelance · Since May 2025</span>
+                    <h3>AI Trainer, DataAnnotation</h3>
+                    <p>Evaluate and improve AI model outputs, including qualified rationale-writing work. Hands-on experience with how LLM training data is judged and what makes a response good or bad.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">LLM Evaluation</span>
+                            <span class="tag">Annotation</span>
+                            <span class="tag">RLHF Data</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -60,102 +101,44 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Projects</h2>
+
+            <!-- Current & personal work first: this is what sets you apart -->
+            <h3 class="subsection-title">Current &amp; Personal Projects</h3>
             <div class="projects-grid">
-                
-                <!-- Year 1 Projects -->
-                <a href="projects/project-1-intro-ds.html" class="project-card">
-                    <h3>Introduction to Data Science</h3>
-                    <p>First exploration into AI and Data Science, creating interactive dashboards with Power BI and building foundational Python programming skills.</p>
+
+                <div class="project-card featured">
+                    <span class="status-badge">In validation</span>
+                    <h3>SaldeerStop</h3>
+                    <p>Venture in development during my Minor Entrepreneurship at HU. A home battery and solar payback tool for Dutch households, built around the end of net metering (saldering) on 1 January 2027. Currently testing whether real household load profiles change battery payback compared to standard profiles.</p>
                     <div class="project-card-footer">
                         <div class="project-tags">
                             <span class="tag">Python</span>
-                            <span class="tag">Power BI</span>
-                            <span class="tag">Mathematics</span>
+                            <span class="tag">Energy Data</span>
+                            <span class="tag">Entrepreneurship</span>
                         </div>
-                        <span class="project-link">View Details →</span>
                     </div>
-                </a>
-                
-                <a href="projects/project-2-ml.html" class="project-card">
-                    <h3>Machine Learning</h3>
-                    <p>Implemented classic ML algorithms for data analysis, applying calculus and linear algebra concepts with SQL database integration.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="status-badge">Personal project</span>
+                    <h3>Govee LED Music Sync</h3>
+                    <p>Python system that drives Govee LED strips in real time from audio. Implements an unofficial UDP protocol for instant colour updates across 50 addressable segments, with multiple audio-reactive presets and a standalone light show player with automatic scene transitions.</p>
                     <div class="project-card-footer">
                         <div class="project-tags">
-                            <span class="tag">Scikit-learn</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Linear Algebra</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">UDP / Networking</span>
+                            <span class="tag">Audio Processing</span>
                         </div>
-                        <span class="project-link">View Details →</span>
                     </div>
-                </a>
-                
-                <a href="projects/project-3-dl.html" class="project-card">
-                    <h3>Deep Learning</h3>
-                    <p>Built image classification models while exploring responsible AI principles, explainability techniques, and human-centered design approaches.</p>
-                    <div class="project-card-footer">
-                        <div class="project-tags">
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">CNNs</span>
-                            <span class="tag">Explainable AI</span>
-                        </div>
-                        <span class="project-link">View Details →</span>
-                    </div>
-                </a>
-                
-                <a href="projects/project-4-lifecycle.html" class="project-card">
-                    <h3>Data Science Lifecycle Management</h3>
-                    <p>Team-based project applying agile methodologies, time series analysis, and data engineering practices with stakeholder collaboration.</p>
-                    <div class="project-card-footer">
-                        <div class="project-tags">
-                            <span class="tag">Agile</span>
-                            <span class="tag">Time Series</span>
-                            <span class="tag">Data Engineering</span>
-                        </div>
-                        <span class="project-link">View Details →</span>
-                    </div>
-                </a>
-                
-                <!-- Year 2 Projects -->
-                <a href="projects/project-5-nlp.html" class="project-card">
-                    <h3>Natural Language Processing</h3>
-                    <p>Developed NLP solutions including speech-to-text systems, text classification, and explored transformer architectures and generative AI.</p>
-                    <div class="project-card-footer">
-                        <div class="project-tags">
-                            <span class="tag">Transformers</span>
-                            <span class="tag">NLP</span>
-                            <span class="tag">Generative AI</span>
-                        </div>
-                        <span class="project-link">View Details →</span>
-                    </div>
-                </a>
-                
-                <a href="projects/project-6-cv.html" class="project-card">
-                    <h3>Computer Vision & Robotics</h3>
-                    <p>Implemented object detection and image segmentation pipelines, with introduction to control theory and reinforcement learning fundamentals.</p>
-                    <div class="project-card-footer">
-                        <div class="project-tags">
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">YOLO</span>
-                            <span class="tag">Reinforcement Learning</span>
-                        </div>
-                        <span class="project-link">View Details →</span>
-                    </div>
-                </a>
-                
-                <a href="projects/project-7-research.html" class="project-card">
-                    <h3>Research Methodology & Statistics</h3>
-                    <p>Conducted quantitative and qualitative research applying probability theory and statistical methods to real-world data science problems.</p>
-                    <div class="project-card-footer">
-                        <div class="project-tags">
-                            <span class="tag">Statistics</span>
-                            <span class="tag">Research Methods</span>
-                            <span class="tag">Probability</span>
-                        </div>
-                        <span class="project-link">View Details →</span>
-                    </div>
-                </a>
-                
+                </div>
+
+            </div>
+
+            <!-- Coursework -->
+            <h3 class="subsection-title">Academic Projects (BUas)</h3>
+            <div class="projects-grid">
+
                 <a href="projects/project-8-mlops.html" class="project-card">
                     <h3>Deploying ML Solutions</h3>
                     <p>Built production-ready ML pipelines using MLOps frameworks, containerization with Docker, and cloud computing infrastructure.</p>
@@ -168,22 +151,98 @@
                         <span class="project-link">View Details →</span>
                     </div>
                 </a>
-                
-                <!-- Year 3 Specialization -->
-                <a href="projects/project-9-tastelab.html" class="project-card featured">
-                    <span class="status-badge">Ongoing</span>
-                    <h3>TasteLab - Data Integration Project</h3>
-                    <p>Full-stack development internship building data pipelines with Dagster, integrating NLP transcription and computer vision models for food experiment analysis.</p>
+
+                <a href="projects/project-5-nlp.html" class="project-card">
+                    <h3>Natural Language Processing</h3>
+                    <p>Developed NLP solutions including speech-to-text systems, text classification, and explored transformer architectures and generative AI.</p>
                     <div class="project-card-footer">
                         <div class="project-tags">
-                            <span class="tag">Dagster</span>
-                            <span class="tag">MinIO</span>
-                            <span class="tag">NeMo/Whisper</span>
+                            <span class="tag">Transformers</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Generative AI</span>
                         </div>
                         <span class="project-link">View Details →</span>
                     </div>
                 </a>
-                
+
+                <a href="projects/project-6-cv.html" class="project-card">
+                    <h3>Computer Vision &amp; Robotics</h3>
+                    <p>Implemented object detection and image segmentation pipelines, with introduction to control theory and reinforcement learning fundamentals.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">YOLO</span>
+                            <span class="tag">Reinforcement Learning</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
+                <a href="projects/project-4-lifecycle.html" class="project-card">
+                    <h3>Data Science Lifecycle Management</h3>
+                    <p>Team-based project applying agile methodologies, time series analysis, and data engineering practices with stakeholder collaboration.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">Agile</span>
+                            <span class="tag">Time Series</span>
+                            <span class="tag">Data Engineering</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
+                <a href="projects/project-3-dl.html" class="project-card">
+                    <h3>Deep Learning</h3>
+                    <p>Built image classification models while exploring responsible AI principles, explainability techniques, and human-centered design approaches.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">CNNs</span>
+                            <span class="tag">Explainable AI</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
+                <a href="projects/project-7-research.html" class="project-card">
+                    <h3>Research Methodology &amp; Statistics</h3>
+                    <p>Conducted quantitative and qualitative research applying probability theory and statistical methods to real-world data science problems.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">Statistics</span>
+                            <span class="tag">Research Methods</span>
+                            <span class="tag">Probability</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
+                <a href="projects/project-2-ml.html" class="project-card">
+                    <h3>Machine Learning</h3>
+                    <p>Implemented classic ML algorithms for data analysis, applying calculus and linear algebra concepts with SQL database integration.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Linear Algebra</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
+                <a href="projects/project-1-intro-ds.html" class="project-card">
+                    <h3>Introduction to Data Science</h3>
+                    <p>First exploration into AI and Data Science, creating interactive dashboards with Power BI and building foundational Python programming skills.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Mathematics</span>
+                        </div>
+                        <span class="project-link">View Details →</span>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -191,35 +250,47 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 class="section-title">Skills &amp; Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Languages</h3>
                     <div class="skill-items">
                         <span class="skill-item">Python</span>
-                        <span class="skill-item">JavaScript</span>
                         <span class="skill-item">SQL</span>
+                        <span class="skill-item">JavaScript</span>
                         <span class="skill-item">HTML/CSS</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category">
-                    <h3>Technologies</h3>
+                    <h3>Data &amp; Backend</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Docker</span>
                         <span class="skill-item">Dagster</span>
-                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Django</span>
                         <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">MinIO</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category">
-                    <h3>Tools</h3>
+                    <h3>AI / ML</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Git</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">faster-whisper</span>
+                        <span class="skill-item">Claude API</span>
+                        <span class="skill-item">YOLOv8</span>
+                        <span class="skill-item">HuggingFace</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>DevOps &amp; Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Docker</span>
                         <span class="skill-item">Portainer</span>
-                        <span class="skill-item">MinIO</span>
-                        <span class="skill-item">VS Code</span>
+                        <span class="skill-item">GHCR</span>
+                        <span class="skill-item">Git</span>
                     </div>
                 </div>
             </div>
@@ -230,21 +301,20 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-text">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <p class="contact-text">Looking for a working student in data or AI, or want to collaborate? I'm based in Nieuwegein and happy to talk.</p>
             <div class="contact-buttons">
                 <a href="mailto:yashyadavnl@gmail.com" class="btn btn-primary">Email Me</a>
-                <a href="https://github.com/yashyadav231709" class="btn btn-secondary" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/yash-yadav-nl/" class="btn btn-secondary" target="_blank">LinkedIn</a>
+                <a href="https://github.com/yashyadav231709" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/yash-yadav-nl/" class="btn btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Yash Yadav. All rights reserved.</p>
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
