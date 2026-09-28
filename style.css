@@ -981,4 +981,9 @@ section {
         text-align: left;
         align-items: flex-start;
     }
+    .subsection-title {
+        font-size: 1.4rem;
+        margin: 2.5rem 0 1rem;
+        opacity: 0.85;
+    }
 }
