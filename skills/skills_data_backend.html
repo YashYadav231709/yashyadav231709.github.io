@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data &amp; Backend | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation (links point back to the main page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            </ul>
+
+            <a href="../index.html#home" class="logo">
+                <img src="../logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
+            </a>
+
+            <ul class="nav-menu nav-right">
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Skill Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#skills" class="back-link">← Back to Skills</a>
+
+            <div class="project-meta">
+                <span class="project-meta-item">Skill Category</span>
+                <span class="project-meta-item">5 skills</span>
+            </div>
+            <h1 class="project-page-title">⚙️ Data &amp; Backend</h1>
+            <p class="project-page-desc">
+                The tools I use to move, store, and serve data. Almost everything here comes from
+                building one real system: the TasteLab pipeline, which researchers used to process
+                their experiment recordings.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🔄 Dagster</span>
+                <span class="tech-badge">⚡ FastAPI</span>
+                <span class="tech-badge">🌐 Django</span>
+                <span class="tech-badge">🗄️ PostgreSQL</span>
+                <span class="tech-badge">📦 MinIO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Content -->
+    <main class="project-content">
+
+        <section class="content-section">
+            <h2>🔄 Dagster</h2>
+            <p>
+                The orchestration layer of the TasteLab pipeline. I used Dagster to define each
+                processing stage as an asset with clear dependencies, from ingesting recordings
+                through transcription and summarization to storing the results.
+            </p>
+            <p>
+                The pipeline grew step by step: it started as basic transcription scripts and
+                became a full Dagster pipeline deployed on a university server.
+            </p>
+            <!-- TODO: Add one specific Dagster feature you built and why, e.g. a sensor that
+                 triggers on new uploads, or a custom I/O manager for MinIO. Only list what you
+                 actually implemented. -->
+        </section>
+
+        <section class="content-section">
+            <h2>⚡ FastAPI</h2>
+            <p>
+                Used at TasteLab to build API services within the pipeline's backend.
+            </p>
+            <!-- TODO: What did your FastAPI service do? E.g. "exposed endpoints for triggering
+                 processing runs and retrieving transcripts." One sentence of what it did makes
+                 this much stronger. -->
+        </section>
+
+        <section class="content-section">
+            <h2>🌐 Django</h2>
+            <p>
+                Built the Django dashboard for TasteLab researchers, giving them a way to view and
+                work with pipeline results without touching the underlying infrastructure.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>🗄️ PostgreSQL</h2>
+            <p>
+                The relational store in the TasteLab pipeline, holding structured metadata and
+                processing outputs, while MinIO handled the large binary files. Also used SQL
+                databases in my Machine Learning coursework.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>📦 MinIO</h2>
+            <p>
+                S3-compatible object storage for all video, audio, and processed artifacts at
+                TasteLab. I integrated it as the pipeline's storage layer and deployed it as part
+                of the Docker stack on the university server.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>In Short</h3>
+                <ul>
+                    <li>Designed and built a complete data pipeline, not just individual scripts</li>
+                    <li>Chose the right storage for each kind of data: relational for metadata, object storage for media</li>
+                    <li>Built both the processing backend and the interface researchers used</li>
+                </ul>
+            </div>
+            <p>
+                <a href="../projects/project-9-tastelab.html">See the full TasteLab project →</a>
+            </p>
+        </section>
+
+        <!-- Skill Navigation -->
+        <nav class="project-navigation">
+            <a href="skills-languages.html" class="nav-prev">
+                <span class="nav-label">Previous Category</span>
+                <span class="nav-title">← Languages</span>
+            </a>
+            <a href="skills-ai-ml.html" class="nav-next">
+                <span class="nav-label">Next Category</span>
+                <span class="nav-title">AI / ML →</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
+    </footer>
+</body>
+</html>

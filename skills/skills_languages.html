@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Languages | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation (links point back to the main page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            </ul>
+
+            <a href="../index.html#home" class="logo">
+                <img src="../logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
+            </a>
+
+            <ul class="nav-menu nav-right">
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Skill Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#skills" class="back-link">← Back to Skills</a>
+
+            <div class="project-meta">
+                <span class="project-meta-item">Skill Category</span>
+                <span class="project-meta-item">4 skills</span>
+            </div>
+            <h1 class="project-page-title">💻 Languages</h1>
+            <p class="project-page-desc">
+                The languages I work in, and where I've actually used them. Python is my main
+                language; the others support the systems I build around it.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🐍 Python</span>
+                <span class="tech-badge">🗄️ SQL</span>
+                <span class="tech-badge">📜 JavaScript</span>
+                <span class="tech-badge">🎨 HTML/CSS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Content -->
+    <main class="project-content">
+
+        <section class="content-section">
+            <h2>🐍 Python</h2>
+            <p>
+                My primary language, used daily for data engineering, backend development, and
+                machine learning.
+            </p>
+            <ul>
+                <li><strong>TasteLab internship:</strong> Built the complete backend pipeline in Python: Dagster assets and orchestration, MinIO storage integration, faster-whisper transcription, Claude API summarization, and FastAPI/Django services.</li>
+                <li><strong>Govee LED Music Sync:</strong> Real-time audio processing and UDP networking to control 50 LED segments with audio-reactive presets.</li>
+                <li><strong>BUas coursework:</strong> Machine learning with scikit-learn, deep learning with PyTorch, NLP with Transformers, and computer vision pipelines.</li>
+            </ul>
+            <p>
+                <a href="../projects/project-9-tastelab.html">See TasteLab →</a> &nbsp;
+                <a href="../projects/project-govee.html">See Govee Music Sync →</a>
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>🗄️ SQL</h2>
+            <p>
+                Used for storing and querying structured data in pipelines and analysis work.
+            </p>
+            <ul>
+                <li><strong>TasteLab internship:</strong> PostgreSQL for structured metadata and pipeline outputs, alongside MinIO for binary files.</li>
+                <li><strong>Machine Learning block:</strong> Integrated SQL databases into data analysis and model workflows.</li>
+            </ul>
+            <!-- TODO: Add one concrete example if you have it, e.g. a schema you designed or a
+                 tricky query you wrote. Specifics make this credible. -->
+        </section>
+
+        <section class="content-section">
+            <h2>📜 JavaScript</h2>
+            <p>
+                Basic, front-end level. I use it for interactivity on web pages such as this
+                portfolio: scroll animations, navigation behaviour, and the intro animation.
+            </p>
+            <!-- TODO: If you've used JavaScript beyond this site (e.g. a dashboard front-end at
+                 TasteLab), add it here. If not, keep the "basic" framing honest. -->
+        </section>
+
+        <section class="content-section">
+            <h2>🎨 HTML/CSS</h2>
+            <p>
+                Used to build and maintain this portfolio site, hosted on GitHub Pages, with
+                responsive layouts, CSS animations, and a consistent design across all pages.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>In Short</h3>
+                <ul>
+                    <li>Python: production-level, used to build and deploy full pipelines</li>
+                    <li>SQL: working knowledge with PostgreSQL in real projects</li>
+                    <li>JavaScript and HTML/CSS: front-end basics for web pages and dashboards</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skill Navigation -->
+        <nav class="project-navigation">
+            <div class="nav-prev"></div>
+            <a href="skills-data-backend.html" class="nav-next">
+                <span class="nav-label">Next Category</span>
+                <span class="nav-title">Data &amp; Backend →</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
+    </footer>
+</body>
+</html>

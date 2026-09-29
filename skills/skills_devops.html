@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps &amp; Tools | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation (links point back to the main page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            </ul>
+
+            <a href="../index.html#home" class="logo">
+                <img src="../logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
+            </a>
+
+            <ul class="nav-menu nav-right">
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Skill Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#skills" class="back-link">← Back to Skills</a>
+
+            <div class="project-meta">
+                <span class="project-meta-item">Skill Category</span>
+                <span class="project-meta-item">4 skills</span>
+            </div>
+            <h1 class="project-page-title">🛠️ DevOps &amp; Tools</h1>
+            <p class="project-page-desc">
+                How I get code from my laptop onto a server and keep it running. At TasteLab I
+                handled the full deployment myself: building images, publishing them, and running
+                the services on a shared university server.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🐳 Docker</span>
+                <span class="tech-badge">🧭 Portainer</span>
+                <span class="tech-badge">📦 GHCR</span>
+                <span class="tech-badge">🌿 Git</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Content -->
+    <main class="project-content">
+
+        <section class="content-section">
+            <h2>🐳 Docker</h2>
+            <p>
+                Containerized the entire TasteLab pipeline, including the Dagster services, MinIO
+                storage, transcription and summarization components, and the Django dashboard,
+                and deployed it as Docker stacks on a BUas server.
+            </p>
+            <p>
+                I first learned containerization in the Deploying ML Solutions block, where I
+                built ML pipelines with Docker and cloud infrastructure.
+            </p>
+            <p>
+                <a href="../projects/project-8-mlops.html">See Deploying ML Solutions →</a>
+            </p>
+            <!-- TODO: If you solved a specific Docker problem (e.g. dependency conflicts between
+                 ML libraries, image size, GPU access in containers), add one sentence about it. -->
+        </section>
+
+        <section class="content-section">
+            <h2>🧭 Portainer</h2>
+            <p>
+                Managed the TasteLab services on the university server through Portainer stacks,
+                which made it possible to deploy, update, and monitor the containers without
+                doing everything by hand on the command line.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>📦 GHCR (GitHub Container Registry)</h2>
+            <p>
+                Published the TasteLab Docker images to GitHub Container Registry under the BUas
+                ADSAI organization, so the server could pull new versions directly instead of
+                building images on the server itself.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>🌿 Git</h2>
+            <p>
+                Used for version control across all my projects, including the TasteLab codebase
+                and this portfolio, which is hosted on GitHub Pages.
+            </p>
+            <p>
+                <a href="https://github.com/yashyadav231709" target="_blank" rel="noopener">See my GitHub →</a>
+            </p>
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>In Short</h3>
+                <ul>
+                    <li>Took a multi-service system all the way from code to a running deployment</li>
+                    <li>Worked within the limits of a shared university server</li>
+                    <li>Set up a build-publish-deploy flow with GHCR and Portainer</li>
+                </ul>
+            </div>
+            <p>
+                <a href="../projects/project-9-tastelab.html">See the full TasteLab project →</a>
+            </p>
+        </section>
+
+        <!-- Skill Navigation -->
+        <nav class="project-navigation">
+            <a href="skills-ai-ml.html" class="nav-prev">
+                <span class="nav-label">Previous Category</span>
+                <span class="nav-title">← AI / ML</span>
+            </a>
+            <div class="nav-next"></div>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
+    </footer>
+</body>
+</html>

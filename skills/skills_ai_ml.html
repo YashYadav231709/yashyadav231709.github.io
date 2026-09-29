@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI / ML | Yash Yadav</title>
+    <link rel="icon" type="image/png" href="../logos/y_squared_png_white.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation (links point back to the main page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu nav-left">
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            </ul>
+
+            <a href="../index.html#home" class="logo">
+                <img src="../logos/y_squared_border_svg_white.svg" alt="Y² logo" class="logo-img">
+            </a>
+
+            <ul class="nav-menu nav-right">
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Skill Hero -->
+    <section class="project-page-hero">
+        <div class="project-hero-container">
+            <a href="../index.html#skills" class="back-link">← Back to Skills</a>
+
+            <div class="project-meta">
+                <span class="project-meta-item">Skill Category</span>
+                <span class="project-meta-item">5 skills</span>
+            </div>
+            <h1 class="project-page-title">🤖 AI / ML</h1>
+            <p class="project-page-desc">
+                The models and frameworks I've trained, integrated, and deployed. My strength is
+                getting models to work reliably inside real systems, not only in notebooks.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">🔥 PyTorch</span>
+                <span class="tech-badge">🎙️ faster-whisper</span>
+                <span class="tech-badge">🧠 Claude API</span>
+                <span class="tech-badge">👁️ YOLOv8</span>
+                <span class="tech-badge">🤗 HuggingFace</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Content -->
+    <main class="project-content">
+
+        <section class="content-section">
+            <h2>🔥 PyTorch</h2>
+            <p>
+                Used in my Deep Learning coursework to build and train image classification models
+                (CNNs), including work on explainability and responsible AI.
+            </p>
+            <p>
+                <a href="../projects/project-3-dl.html">See Deep Learning project →</a>
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>🎙️ faster-whisper</h2>
+            <p>
+                The speech-to-text engine in the TasteLab pipeline. The pipeline originally used
+                NVIDIA NeMo, but its transcription quality wasn't good enough for our recordings,
+                so I switched to faster-whisper and integrated it into the Dagster pipeline.
+            </p>
+            <!-- TODO: Add what the quality issue was and how you judged faster-whisper was better
+                 (e.g. compared transcripts on the same recordings). This comparison is a strong
+                 interview story: it shows you evaluate tools instead of just using them. -->
+        </section>
+
+        <section class="content-section">
+            <h2>🧠 Claude API</h2>
+            <p>
+                Built a two-pass summarization step in the TasteLab pipeline using the Claude API,
+                turning long experiment transcripts into structured summaries for researchers.
+            </p>
+            <p>
+                Alongside this, I work as a freelance AI Trainer at DataAnnotation, evaluating LLM
+                outputs. That gives me a practical sense of where language models do well and
+                where they fail, which I use when designing prompts and checking results.
+            </p>
+            <!-- TODO: Why two passes? One sentence on what each pass does shows real design thinking. -->
+        </section>
+
+        <section class="content-section">
+            <h2>👁️ YOLOv8</h2>
+            <p>
+                Integrated computer vision models (YOLOv8 and ResNet50) into the TasteLab pipeline
+                for visual analysis of the experiment recordings. I also worked with YOLO-based
+                object detection in my Computer Vision &amp; Robotics coursework.
+            </p>
+            <p>
+                <a href="../projects/project-6-cv.html">See Computer Vision project →</a>
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>🤗 HuggingFace</h2>
+            <p>
+                Used HuggingFace Transformers in my NLP coursework for text classification and
+                exploring transformer architectures, and worked with HuggingFace models in the
+                audio transcription and summarization work.
+            </p>
+            <p>
+                <a href="../projects/project-5-nlp.html">See NLP project →</a>
+            </p>
+        </section>
+
+        <section class="content-section">
+            <div class="learning-outcomes">
+                <h3>In Short</h3>
+                <ul>
+                    <li>Integrated speech, language, and vision models into one working pipeline</li>
+                    <li>Replaced a model when it didn't meet quality needs, rather than working around it</li>
+                    <li>Hands-on experience evaluating LLM outputs, both as a developer and as an AI Trainer</li>
+                </ul>
+            </div>
+            <p>
+                <a href="../projects/project-9-tastelab.html">See the full TasteLab project →</a>
+            </p>
+        </section>
+
+        <!-- Skill Navigation -->
+        <nav class="project-navigation">
+            <a href="skills-data-backend.html" class="nav-prev">
+                <span class="nav-label">Previous Category</span>
+                <span class="nav-title">← Data &amp; Backend</span>
+            </a>
+            <a href="skills-devops.html" class="nav-next">
+                <span class="nav-label">Next Category</span>
+                <span class="nav-title">DevOps &amp; Tools →</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Yash Yadav · Y². All rights reserved.</p>
+    </footer>
+</body>
+</html>
